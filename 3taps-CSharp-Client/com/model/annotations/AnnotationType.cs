@@ -4,8 +4,8 @@ namespace ThreeTaps
 {
 	public class AnnotationJava
 	{
-		public AnnotationJava ()
-		{
+		public enum AnnotationType {
+			SELECT, STRING, NUMBER
 		}
 	}
 }
