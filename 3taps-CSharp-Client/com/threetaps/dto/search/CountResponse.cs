@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ThreeTaps.com.threetaps.dto.search
+namespace com.threetaps.dto.search
 {
     class CountResponse
     {
