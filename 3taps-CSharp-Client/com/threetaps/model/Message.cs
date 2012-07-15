@@ -1,13 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System;
 
-namespace ThreeTaps.com.threetaps.model
+namespace ThreeTaps
 {
-    class Message
-    {
-        private string code { get; set; }
-        private string message { get; set; }
-    }
+	public class Message
+	{
+		private String code;
+		private String message;
+		
+		public String getCode() {
+			return code;
+		}
+		
+		public void setCode(String code) {
+			this.code = code;
+		}
+		
+		public String getMessage() {
+			return message;
+		}
+		
+		public void setMessage(String message) {
+			this.message = message;
+		}
+	}
 }
+
