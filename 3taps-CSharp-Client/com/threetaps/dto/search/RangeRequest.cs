@@ -10,8 +10,8 @@ namespace com.threetaps.dto.search
 			this.fields = new List<string>();
 		}
 		
-		private SearchRequest searchRequest { get; set; }
-		private List<string> fields { get; set; }
+		public SearchRequest searchRequest { get; set; }
+		public List<string> fields { get; set; }
 		
 		public void addField(string field) {
 			fields.Add(field);

@@ -7,6 +7,6 @@ namespace com.threetaps.dto.search
 {
     class CountResponse
     {
-        private int count { get; set; }
+        public int count { get; set; }
     }
 }
