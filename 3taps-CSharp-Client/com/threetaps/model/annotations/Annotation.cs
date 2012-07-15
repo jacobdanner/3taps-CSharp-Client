@@ -1,11 +1,12 @@
 using System;
+using System.Collections.Generic;
 
-namespace ThreeTaps
+namespace com.threetaps.model.annotations
 {
 	public class Annotation
 	{
 		private String name;
-		private AnnotationType annotationType;
+		private AnnotationJava.AnnotationType annotationType;
 		private List<AnnotationOption> options;
 		
 		public String getName() {
@@ -16,11 +17,11 @@ namespace ThreeTaps
 			this.name = name;
 		}
 		
-		public AnnotationType getAnnotationType() {
+		public AnnotationJava.AnnotationType getAnnotationType() {
 			return annotationType;
 		}
 		
-		public void setAnnotationType(AnnotationType annotationType) {
+		public void setAnnotationType(AnnotationJava.AnnotationType annotationType) {
 			this.annotationType = annotationType;
 		}
 		

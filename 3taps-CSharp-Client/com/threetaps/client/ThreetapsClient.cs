@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Threetaps.client
+namespace com.threetaps.client
 {
   public class ThreetapsClient
   {
-    private static ThreetapsClient instance;
+	private static ThreetapsClient instance;
 	
-	public final static String AUTH_ID_KEY = "authID";
+	public static readonly String AUTH_ID_KEY = "authID";
 	private String authID;
 	
 	private ReferenceClient referenceClient;
