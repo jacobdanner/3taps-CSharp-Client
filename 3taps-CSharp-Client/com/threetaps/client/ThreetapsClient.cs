@@ -11,12 +11,12 @@ namespace com.threetaps.client
 	
 	public static readonly String AUTH_ID_KEY = "authID";
 	private String authID;
-	
-	private ReferenceClient referenceClient;
-	private PostingClient postingClient;
-	private SearchClient searchClient;
-	private GeocoderClient geocoderClient;
-	private StatusClient statusClient;
+
+    protected ReferenceClient referenceClient { get; private set; }
+    protected PostingClient postingClient { get; private set; }
+    protected SearchClient searchClient { get; private set; }
+    protected GeocoderClient geocoderClient { get; private set; }
+    protected StatusClient statusClient { get; private set; }
 	
 	private ThreetapsClient() {
 		referenceClient = ReferenceClient.getInstance();
@@ -26,7 +26,7 @@ namespace com.threetaps.client
 		statusClient = StatusClient.getInstance();
 	}
 	
-	public synchronized static ThreetapsClient getInstance() {
+	public static ThreetapsClient getInstance() {
 		if (instance == null) instance = new ThreetapsClient();
 		return instance;
 	}
@@ -39,26 +39,6 @@ namespace com.threetaps.client
 		this.authID = authID;
 		return this;
 	}	
-	
-	public ReferenceClient getReferenceClient() {
-		return referenceClient;
-	}
-	
-	public PostingClient getPostingClient() {
-		return postingClient;
-	}
-	
-	public SearchClient getSearchClient() {
-		return searchClient;
-	}
-	
-	public GeocoderClient getGeocoderClient() {
-		return geocoderClient;
-	}
-	
-	public StatusClient getStatusClient() {
-		return statusClient;
-	}
 
   }
 }
