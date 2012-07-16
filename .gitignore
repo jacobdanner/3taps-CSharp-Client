@@ -1,0 +1,13 @@
+_ReSharper.3taps-CSharp-Client
+3taps-CSharp-Client\bin
+3taps-CSharp-Client\obj
+*~
+*.swp
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+bin
+obj
+
+# mstest test results
+TestResults
+
+
