@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace ThreeTaps.com.threetaps.dto.geocoder
+namespace com.threetaps.dto.geocoder
 {
     public class GeocoderRequest
     {

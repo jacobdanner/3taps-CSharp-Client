@@ -2,7 +2,7 @@
 
 namespace com.threetaps.dto.posting
 {
-    class DeleteResponse
+    public class DeleteResponse
     {
         private bool success { get; set; }
     }

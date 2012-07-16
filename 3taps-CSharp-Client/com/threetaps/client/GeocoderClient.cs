@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using com.threetaps.dto.geocoder;
 
 namespace com.threetaps.client
 {
@@ -14,5 +15,10 @@ namespace com.threetaps.client
                 instance = new GeocoderClient();
             return instance;
         }
+
+        public List<GeocoderResponse> geocode(List<GeocoderRequest> geocoderRequests)
+        {
+		 throw new NotImplementedException("Implement me");
+	    }
     }
 }
