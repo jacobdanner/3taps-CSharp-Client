@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Threetaps\client\Class1.cs" />
-    <Compile Include="Threetaps\client\ThreetapsClient.cs" />
-    <Compile Include="Threetaps\client\Client.cs" />
+    <Compile Include="com\client\Class1.cs" />
+    <Compile Include="com\client\ThreetapsClient.cs" />
+    <Compile Include="com\client\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="com\client\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
