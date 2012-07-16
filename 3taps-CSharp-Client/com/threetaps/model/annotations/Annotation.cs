@@ -8,7 +8,5 @@ namespace com.threetaps.model.annotations
         private String name { get; set; }
         private AnnotationType annotationType { get; set; }
         private List<AnnotationOption> options { get; set; }
-        
     }
 }
-

@@ -10,7 +10,7 @@ namespace com.threetaps.dto.search
 
         public Dictionary<string, string> getQueryParams()
         {
-            const Dictionary<string, string> queryParams = searchRequest.getQueryParams();
+            Dictionary<string, string> queryParams = searchRequest.getQueryParams();
             if (dimension != null)
             {
                 queryParams["dimension"] = dimension;

@@ -4,11 +4,11 @@ using com.threetaps.model;
 
 namespace com.threetaps.dto.search
 {
-    class SearchResponse
+    public class SearchResponse
     {
-        private bool success;
-        private int numResults;
-        private int execTimeMs;
-        private List<Posting> results;
+        private bool success { get; set; }
+        private int numResults { get; set; }
+        private int execTimeMs { get; set; }
+        private List<Posting> results { get; set; }
     }
 }

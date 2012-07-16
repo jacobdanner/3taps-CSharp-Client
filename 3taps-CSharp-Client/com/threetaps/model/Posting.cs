@@ -36,8 +36,5 @@ namespace com.threetaps.model
         private bool exists { get; set; }
         private List<PostingHistory> history { get; set; }
         private string status { get; set; }
-
-       
     }
 }
-

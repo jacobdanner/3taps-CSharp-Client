@@ -6,7 +6,5 @@ namespace com.threetaps.model
     {
         private string code { get; set; }
         private string message { get; set; }
-
     }
 }
-

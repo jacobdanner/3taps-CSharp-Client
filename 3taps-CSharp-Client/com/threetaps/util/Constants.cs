@@ -9,4 +9,3 @@ namespace com.threetaps.util
         public static readonly string DATE_FORMAT = "yyyy/MM/dd HH:mm:ss z";
     }
 }
-

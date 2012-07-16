@@ -10,15 +10,16 @@ namespace com.threetaps.client
     {
         private static GeocoderClient instance;
         // TODO: synchronize this
-        public static GeocoderClient getInstance() {
-            if (instance == null) 
+        public static GeocoderClient getInstance()
+        {
+            if (instance == null)
                 instance = new GeocoderClient();
             return instance;
         }
 
         public List<GeocoderResponse> geocode(List<GeocoderRequest> geocoderRequests)
         {
-		 throw new NotImplementedException("Implement me");
-	    }
+            throw new NotImplementedException("Implement me");
+        }
     }
 }

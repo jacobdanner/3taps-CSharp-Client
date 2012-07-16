@@ -12,6 +12,5 @@ namespace com.threetaps.dto.geocoder
         private string locality { get; set; }
         private string postal { get; set; }
         private string text { get; set; }
-
     }
 }

@@ -9,4 +9,3 @@ namespace com.threetaps.model.annotations
         NUMBER
     }
 }
-

@@ -16,4 +16,3 @@ namespace com.threetaps.model
         private float longitude { get; set; }
     }
 }
-

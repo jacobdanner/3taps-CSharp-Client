@@ -12,4 +12,3 @@ namespace com.threetaps.model
         private List<Annotation> annotations { get; set; }
     }
 }
-
