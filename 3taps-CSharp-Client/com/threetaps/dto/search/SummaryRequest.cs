@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace com.threetaps.dto.search
 {
@@ -15,7 +13,7 @@ namespace com.threetaps.dto.search
             const Dictionary<string, string> queryParams = searchRequest.getQueryParams();
             if (dimension != null)
             {
-                queryParams.Add("dimension", dimension);
+                queryParams["dimension"] = dimension;
             }
             return queryParams;
         }
