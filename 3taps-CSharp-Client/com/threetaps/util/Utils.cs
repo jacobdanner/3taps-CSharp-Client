@@ -1,21 +1,23 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace ThreeTaps
+namespace com.threetaps.util
 {
 	public class Utils
 	{
-		public static String join(List<String> strings)
+		public static string Join(List<string> strings)
 		{
-			if (strings != null && strings.size() > 0)
+			if (strings != null && strings.Count > 0)
 			{
-				StringBuffer joinBuffer = new StringBuffer();
-				foreach (String iter_string in strings)
+				StringBuilder joinBuffer = new StringBuilder();
+				foreach (string iterString in strings)
 				{
-					joinBuffer.append(iter_string);
-					joinBuffer.append(",");
+					joinBuffer.Append(iterString);
+					joinBuffer.Append(",");
 				}
-				joinBuffer.deleteCharAt(joinBuffer.length() - 1);
-				return joinBuffer.toString();
+				joinBuffer.Remove(joinBuffer.Length, 1);
+				return joinBuffer.ToString();
 			}
 			return "";
 		}

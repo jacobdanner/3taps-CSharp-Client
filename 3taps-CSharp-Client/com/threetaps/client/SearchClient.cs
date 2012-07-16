@@ -5,7 +5,7 @@ using System.Text;
 
 namespace com.threetaps.client
 {
-    public class GeocoderClient
+    public class SearchClient
     {
     }
 }

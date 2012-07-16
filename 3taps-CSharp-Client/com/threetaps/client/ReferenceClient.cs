@@ -1,12 +1,11 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace ThreeTaps
+namespace com.threetaps.client
 {
-	public class ReferenceClient
-	{
-		public ReferenceClient ()
-		{
-		}
-	}
+    class ReferenceClient
+    {
+    }
 }
-

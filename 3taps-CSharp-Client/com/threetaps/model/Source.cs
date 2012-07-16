@@ -1,6 +1,6 @@
 using System;
 
-namespace ThreeTaps
+namespace com.threetaps.model
 {
 	public class Source
 	{

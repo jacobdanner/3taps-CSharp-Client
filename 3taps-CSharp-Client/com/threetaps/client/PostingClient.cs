@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ThreeTaps.com.threetaps.client
+namespace com.threetaps.client
 {
-    class PostingClient
+    public class PostingClient
     {
     }
 }
