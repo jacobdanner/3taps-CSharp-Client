@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ThreeTaps.com.threetaps.dto.geocoder
 {
-    class GeocoderRequest
+    public class GeocoderRequest
     {
         private float latitude { get; set; }
         private float longitude { get; set; }

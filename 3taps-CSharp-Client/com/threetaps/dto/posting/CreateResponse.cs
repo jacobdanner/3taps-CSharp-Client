@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ThreeTaps.com.threetaps.model;
+using com.threetaps.model;
 
-namespace ThreeTaps.com.threetaps.dto.posting
+namespace com.threetaps.dto.posting
 {
-    class CreateResponse
+    public class CreateResponse
     {
         private string postKey { get; set; }
         private Message error { get; set; }

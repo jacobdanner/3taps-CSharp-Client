@@ -1,36 +1,15 @@
 using System;
+using System.Collections.Generic;
 
 namespace com.threetaps.model
 {
-	public class PostingHistory
-	{
-		private Date timestamp;
-		private List<Message> errors;
-		private Map<String, Object> attributes;
-		
-		public Date getTimestamp() {
-			return timestamp;
-		}
-		
-		public void setTimestamp(Date timestamp) {
-			this.timestamp = timestamp;
-		}
-		
-		public List<Message> getErrors() {
-			return errors;
-		}
-		
-		public void setErrors(List<Message> errors) {
-			this.errors = errors;
-		}
-		
-		public Map<String, Object> getAttributes() {
-			return attributes;
-		}
-		
-		public void setAttributes(Map<String, Object> attributes) {
-			this.attributes = attributes;
-		}
-	}
+    public class PostingHistory
+    {
+        private DateTime timestamp { get; set; }
+        private List<Message> errors { get; set; }
+        private Dictionary<String, Object> attributes { get; set; }
+        
+        
+    }
 }
 

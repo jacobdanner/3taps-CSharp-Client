@@ -7,5 +7,13 @@ namespace com.threetaps.client
 {
     public class StatusClient
     {
+        private static StatusClient instance;
+        // TODO: synchronize this
+        public static StatusClient getInstance()
+        {
+            if (instance == null)
+                instance = new StatusClient();
+            return instance;
+        }
     }
 }
