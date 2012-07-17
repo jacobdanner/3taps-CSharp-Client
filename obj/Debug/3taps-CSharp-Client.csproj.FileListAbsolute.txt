@@ -1,1 +1,0 @@
-E:\projects\3taps-CSharp-Client\3taps-CSharp-Client\obj\Debug\3taps-CSharp-Client.csprojResolveAssemblyReference.cache
