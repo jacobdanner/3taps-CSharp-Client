@@ -40,14 +40,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="com\client\Class1.cs" />
-    <Compile Include="com\client\ThreetapsClient.cs" />
-    <Compile Include="com\client\Client.cs" />
+    <Compile Include="com\threetaps\client\GeocoderClient.cs" />
+    <Compile Include="com\threetaps\client\PostingClient.cs" />
+    <Compile Include="com\threetaps\client\ReferenceClient.cs" />
+    <Compile Include="com\threetaps\client\SearchClient.cs" />
+    <Compile Include="com\threetaps\client\StatusClient.cs" />
+    <Compile Include="com\threetaps\client\ThreetapsClient.cs" />
+    <Compile Include="com\threetaps\client\Client.cs" />
+    <Compile Include="com\threetaps\dto\geocoder\GeocoderRequest.cs" />
+    <Compile Include="com\threetaps\dto\geocoder\GeocoderResponse.cs" />
+    <Compile Include="com\threetaps\dto\posting\CreateResponse.cs" />
+    <Compile Include="com\threetaps\dto\posting\DeleteResponse.cs" />
+    <Compile Include="com\threetaps\dto\posting\UpdateResponse.cs" />
+    <Compile Include="com\threetaps\dto\search\BestMatchResponse.cs" />
+    <Compile Include="com\threetaps\dto\search\CountResponse.cs" />
+    <Compile Include="com\threetaps\dto\search\IQueryRequest.cs" />
+    <Compile Include="com\threetaps\dto\search\RangeRequest.cs" />
+    <Compile Include="com\threetaps\dto\search\RangeResponse.cs" />
+    <Compile Include="com\threetaps\dto\search\SearchRequest.cs" />
+    <Compile Include="com\threetaps\dto\search\SearchResponse.cs" />
+    <Compile Include="com\threetaps\dto\search\SummaryRequest.cs" />
+    <Compile Include="com\threetaps\dto\search\SummaryResponse.cs" />
+    <Compile Include="com\threetaps\model\annotations\Annotation.cs" />
+    <Compile Include="com\threetaps\model\annotations\AnnotationOption.cs" />
+    <Compile Include="com\threetaps\model\annotations\AnnotationType.cs" />
+    <Compile Include="com\threetaps\model\Category.cs" />
+    <Compile Include="com\threetaps\model\Location.cs" />
+    <Compile Include="com\threetaps\model\Message.cs" />
+    <Compile Include="com\threetaps\model\Posting.cs" />
+    <Compile Include="com\threetaps\model\PostingHistory.cs" />
+    <Compile Include="com\threetaps\model\Source.cs" />
+    <Compile Include="com\threetaps\util\Constants.cs" />
+    <Compile Include="com\threetaps\util\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="com\client\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
