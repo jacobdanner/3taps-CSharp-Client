@@ -4,13 +4,13 @@ namespace com.threetaps.dto.geocoder
 {
   public class GeocoderRequest
   {
-    private float latitude { get; set; }
-    private float longitude { get; set; }
-    private string country { get; set; }
-    private string state { get; set; }
-    private string city { get; set; }
-    private string locality { get; set; }
-    private string postal { get; set; }
-    private string text { get; set; }
+    public float latitude { get; set; }
+    public float longitude { get; set; }
+    public string country { get; set; }
+    public string state { get; set; }
+    public string city { get; set; }
+    public string locality { get; set; }
+    public string postal { get; set; }
+    public string text { get; set; }
   }
 }

@@ -4,7 +4,7 @@ namespace com.threetaps.model
 {
   public class Message
   {
-    private string code { get; set; }
-    private string message { get; set; }
+    public string code { get; set; }
+    public string message { get; set; }
   }
 }

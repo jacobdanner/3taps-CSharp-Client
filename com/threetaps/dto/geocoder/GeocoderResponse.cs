@@ -7,8 +7,8 @@ namespace com.threetaps.dto.geocoder
 {
   public class GeocoderResponse
   {
-    private string code { get; set; }
-    private float latitude { get; set; }
-    private float longitude { get; set; }
+    public string code { get; set; }
+    public float latitude { get; set; }
+    public float longitude { get; set; }
   }
 }

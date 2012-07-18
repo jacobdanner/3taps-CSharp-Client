@@ -5,17 +5,13 @@ using com.threetaps.dto.search;
 
 namespace _3taps_CSharp_Client_Test
 {
-    
-    
-    /// <summary>
-    ///This is a test class for SearchClientTest and is intended
-    ///to contain all SearchClientTest Unit Tests
-    ///</summary>
+  /// <summary>
+  ///This is a test class for SearchClientTest and is intended
+  ///to contain all SearchClientTest Unit Tests
+  ///</summary>
   [TestClass()]
-  public class SearchClientTest
+  public class SearchClientTest : BaseTestCase
   {
-
-
     private TestContext testContextInstance;
 
     /// <summary>
@@ -24,17 +20,21 @@ namespace _3taps_CSharp_Client_Test
     ///</summary>
     public TestContext TestContext
     {
-      get
-      {
-        return testContextInstance;
-      }
-      set
-      {
-        testContextInstance = value;
-      }
+      get { return testContextInstance; }
+      set { testContextInstance = value; }
     }
 
+    private SearchClient searchClient;
+
+    [TestInitialize()]
+    public void setUp()
+    {
+      searchClient = ThreetapsClient.getInstance().setAuthID(API_KEY).searchClient;
+    }
+
+
     #region Additional test attributes
+
     // 
     //You can use the following additional attributes as you write your tests:
     //
@@ -62,18 +62,8 @@ namespace _3taps_CSharp_Client_Test
     //{
     //}
     //
+
     #endregion
-
-
-    /// <summary>
-    ///A test for SearchClient Constructor
-    ///</summary>
-    [TestMethod()]
-    public void SearchClientConstructorTest()
-    {
-      SearchClient target = new SearchClient();
-      Assert.Inconclusive("TODO: Implement code to verify target");
-    }
 
     /// <summary>
     ///A test for count
@@ -81,27 +71,17 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void countTest()
     {
-      SearchClient target = new SearchClient(); // TODO: Initialize to an appropriate value
-      SearchRequest searchRequest = null; // TODO: Initialize to an appropriate value
-      int expected = 0; // TODO: Initialize to an appropriate value
-      int actual;
-      actual = target.count(searchRequest);
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
+  	SearchRequest searchRequest = new SearchRequest();
+	
+		searchRequest.text = "Nintendo";
+		searchRequest.source = "E_BAY";
+		searchRequest.location = "LAX";
+		
+		int count = searchClient.count(searchRequest);
+		Assert.IsTrue( count != 0);
     }
 
-    /// <summary>
-    ///A test for getInstance
-    ///</summary>
-    [TestMethod()]
-    public void getInstanceTest()
-    {
-      SearchClient expected = null; // TODO: Initialize to an appropriate value
-      SearchClient actual;
-      actual = SearchClient.getInstance();
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
-    }
+   
 
     /// <summary>
     ///A test for range
@@ -109,13 +89,16 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void rangeTest()
     {
-      SearchClient target = new SearchClient(); // TODO: Initialize to an appropriate value
-      RangeRequest rangeRequest = null; // TODO: Initialize to an appropriate value
-      RangeResponse expected = null; // TODO: Initialize to an appropriate value
-      RangeResponse actual;
-      actual = target.range(rangeRequest);
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
+      SearchRequest searchRequest = new SearchRequest();
+		searchRequest.text = "Nintendo";
+		
+		RangeRequest rangeRequest = new RangeRequest();
+		rangeRequest.searchRequest = searchRequest;
+		rangeRequest.addField("price");
+		
+		RangeResponse response = searchClient.range(rangeRequest);
+		//Assert.IsTrue( response.ranges.get("price").getMin() == 0);
+		//assert response.getRanges().get("price").getMax() > 0;   
     }
 
     /// <summary>
@@ -124,13 +107,15 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void searchTest()
     {
-      SearchClient target = new SearchClient(); // TODO: Initialize to an appropriate value
-      SearchRequest searchRequest = null; // TODO: Initialize to an appropriate value
-      SearchResponse expected = null; // TODO: Initialize to an appropriate value
-      SearchResponse actual;
-      actual = target.search(searchRequest);
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
+      SearchRequest searchRequest = new SearchRequest();
+	
+		searchRequest.text="Nintendo";
+		searchRequest.source= "E_BAY";
+		searchRequest.location = "LAX";
+		
+		SearchResponse searchResponse = searchClient.search(searchRequest);
+		Assert.IsTrue(searchResponse.success);
+		Assert.IsTrue(searchResponse.numResults > -2);
     }
 
     /// <summary>
@@ -139,13 +124,16 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void summaryTest()
     {
-      SearchClient target = new SearchClient(); // TODO: Initialize to an appropriate value
-      SummaryRequest summaryRequest = null; // TODO: Initialize to an appropriate value
-      SummaryResponse expected = null; // TODO: Initialize to an appropriate value
-      SummaryResponse actual;
-      actual = target.summary(summaryRequest);
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
-    }
+   	SearchRequest searchRequest = new SearchRequest();	
+		searchRequest.text = "Nintendo";
+		
+		SummaryRequest summaryRequest = new SummaryRequest();
+		summaryRequest.searchRequest = searchRequest;
+		summaryRequest.dimension = "source";
+		
+		SummaryResponse summaryResponse = searchClient.summary(summaryRequest);
+		Assert.IsTrue(summaryResponse.execTimeMs > 0);
+		Assert.IsTrue(summaryResponse.totals.ContainsKey("E_BAY"));
+	 }
   }
 }

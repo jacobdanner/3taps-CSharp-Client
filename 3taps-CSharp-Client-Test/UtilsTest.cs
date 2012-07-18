@@ -1,18 +1,21 @@
-﻿using com.threetaps.client;
+﻿using com.threetaps.util;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using com.threetaps.dto.geocoder;
 using System.Collections.Generic;
 
 namespace _3taps_CSharp_Client_Test
 {
-  /// <summary>
-  ///This is a test class for GeocoderClientTest and is intended
-  ///to contain all GeocoderClientTest Unit Tests
-  ///</summary>
+    
+    
+    /// <summary>
+    ///This is a test class for UtilsTest and is intended
+    ///to contain all UtilsTest Unit Tests
+    ///</summary>
   [TestClass()]
-  public class GeocoderClientTest :BaseTestCase
+  public class UtilsTest
   {
+
+
     private TestContext testContextInstance;
 
     /// <summary>
@@ -21,12 +24,17 @@ namespace _3taps_CSharp_Client_Test
     ///</summary>
     public TestContext TestContext
     {
-      get { return testContextInstance; }
-      set { testContextInstance = value; }
+      get
+      {
+        return testContextInstance;
+      }
+      set
+      {
+        testContextInstance = value;
+      }
     }
 
     #region Additional test attributes
-
     // 
     //You can use the following additional attributes as you write your tests:
     //
@@ -54,30 +62,33 @@ namespace _3taps_CSharp_Client_Test
     //{
     //}
     //
-
     #endregion
 
-    
+
     /// <summary>
-    ///A test for geocode
+    ///A test for Join
     ///</summary>
     [TestMethod()]
-    public void geocodeTest()
+    public void JoinTest()
     {
-      GeocoderClient geocoderClient =
-        ThreetapsClient.getInstance().setAuthID(API_KEY).geocoderClient;
+      List<string> strings = new List<string>();
+      strings.Add("a");
+      strings.Add("b");
+      strings.Add("c");
 
-      GeocoderRequest geocoderRequest = new GeocoderRequest();
-      geocoderRequest.text= "Los Angeles, CA";
-
-      List<GeocoderRequest> geocoderRequests = new List<GeocoderRequest>();
-      geocoderRequests.Add(geocoderRequest);
-
-      List<GeocoderResponse> geocoderResponses = geocoderClient.geocode(geocoderRequests);
-
-      Assert.IsTrue(geocoderResponses.Count > 1);
-      Assert.IsTrue(geocoderResponses.Exists(item => item.code == "LAX"));
+      string expected = "a,b,c";
+      string empty = string.Empty;
+      string actual = Utils.Join(strings);
+      Assert.AreEqual(expected, actual);
     }
 
+    [TestMethod()]
+    public void JoinTest_Empty()
+    {
+      List<string> strings = new List<string>();
+      string empty = string.Empty;
+      string actual = Utils.Join(strings);
+      Assert.AreEqual(empty, actual);
+    }
   }
 }

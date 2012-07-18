@@ -13,7 +13,7 @@ namespace _3taps_CSharp_Client_Test
     ///to contain all ClientTest Unit Tests
     ///</summary>
   [TestClass()]
-  public class ClientTest
+  public class ClientTest : BaseTestCase
   {
 
 

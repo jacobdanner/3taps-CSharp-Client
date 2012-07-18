@@ -4,15 +4,15 @@ namespace com.threetaps.model
 {
   public class Location
   {
-    private string code { get; set; }
-    private int countryRank { get; set; }
-    private string country { get; set; }
-    private int cityRank { get; set; }
-    private string city { get; set; }
-    private string stateCode { get; set; }
-    private string stateName { get; set; }
-    private bool hidden { get; set; }
-    private float latitude { get; set; }
-    private float longitude { get; set; }
+    public string code { get; set; }
+    public int countryRank { get; set; }
+    public string country { get; set; }
+    public int cityRank { get; set; }
+    public string city { get; set; }
+    public string stateCode { get; set; }
+    public string stateName { get; set; }
+    public bool hidden { get; set; }
+    public float latitude { get; set; }
+    public float longitude { get; set; }
   }
 }

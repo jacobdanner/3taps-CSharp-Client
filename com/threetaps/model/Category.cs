@@ -6,9 +6,9 @@ namespace com.threetaps.model
 {
   public class Category
   {
-    private string group { get; set; }
-    private string code { get; set; }
-    private string category { get; set; }
-    private List<Annotation> annotations { get; set; }
+    public string group { get; set; }
+    public string code { get; set; }
+    public string category { get; set; }
+    public List<Annotation> annotations { get; set; }
   }
 }

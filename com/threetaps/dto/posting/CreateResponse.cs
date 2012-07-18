@@ -5,7 +5,7 @@ namespace com.threetaps.dto.posting
 {
   public class CreateResponse
   {
-    private string postKey { get; set; }
-    private Message error { get; set; }
+    public string postKey { get; set; }
+    public Message error { get; set; }
   }
 }

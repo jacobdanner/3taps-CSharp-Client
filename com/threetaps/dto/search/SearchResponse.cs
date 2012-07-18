@@ -6,9 +6,9 @@ namespace com.threetaps.dto.search
 {
   public class SearchResponse
   {
-    private bool success { get; set; }
-    private int numResults { get; set; }
-    private int execTimeMs { get; set; }
-    private List<Posting> results { get; set; }
+    public bool success { get; set; }
+    public int numResults { get; set; }
+    public int execTimeMs { get; set; }
+    public List<Posting> results { get; set; }
   }
 }

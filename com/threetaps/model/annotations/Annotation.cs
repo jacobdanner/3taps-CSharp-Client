@@ -5,8 +5,8 @@ namespace com.threetaps.model.annotations
 {
   public class Annotation
   {
-    private String name { get; set; }
-    private AnnotationType annotationType { get; set; }
-    private List<AnnotationOption> options { get; set; }
+    public String name { get; set; }
+    public AnnotationType annotationType { get; set; }
+    public List<AnnotationOption> options { get; set; }
   }
 }

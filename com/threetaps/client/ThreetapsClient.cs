@@ -9,11 +9,11 @@ namespace com.threetaps.client
     public static readonly String AUTH_ID_KEY = "authID";
     private String authID;
 
-    protected ReferenceClient referenceClient { get; private set; }
-    protected PostingClient postingClient { get; private set; }
-    protected SearchClient searchClient { get; private set; }
-    protected GeocoderClient geocoderClient { get; private set; }
-    protected StatusClient statusClient { get; private set; }
+    public ReferenceClient referenceClient { get; private set; }
+    public PostingClient postingClient { get; private set; }
+    public SearchClient searchClient { get; private set; }
+    public GeocoderClient geocoderClient { get; private set; }
+    public StatusClient statusClient { get; private set; }
 
     private ThreetapsClient()
     {

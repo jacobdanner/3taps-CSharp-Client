@@ -10,7 +10,9 @@ namespace com.threetaps.util
     {
       if (strings != null && strings.Count > 0)
       {
-        StringBuilder joinBuffer = new StringBuilder();
+        return string.Join(",", strings);
+        /* Java ish way of doing things
+         StringBuilder joinBuffer = new StringBuilder();
         foreach (string iterString in strings)
         {
           joinBuffer.Append(iterString);
@@ -18,6 +20,7 @@ namespace com.threetaps.util
         }
         joinBuffer.Remove(joinBuffer.Length, 1);
         return joinBuffer.ToString();
+         */
       }
       return "";
     }

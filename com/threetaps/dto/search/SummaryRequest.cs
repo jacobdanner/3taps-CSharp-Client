@@ -5,8 +5,8 @@ namespace com.threetaps.dto.search
 {
   public class SummaryRequest : IQueryRequest
   {
-    private SearchRequest searchRequest { get; set; }
-    private String dimension { get; set; }
+    public SearchRequest searchRequest { get; set; }
+    public String dimension { get; set; }
 
     public Dictionary<string, string> getQueryParams()
     {

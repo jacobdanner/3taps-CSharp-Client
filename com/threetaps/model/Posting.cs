@@ -5,36 +5,36 @@ namespace com.threetaps.model
 {
   public class Posting
   {
-    private string postKey { get; set; }
-    private string heading { get; set; }
-    private string body { get; set; }
-    private string category { get; set; }
-    private string source { get; set; }
-    private string location { get; set; }
+    public string postKey { get; set; }
+    public string heading { get; set; }
+    public string body { get; set; }
+    public string category { get; set; }
+    public string source { get; set; }
+    public string location { get; set; }
 
-    private float longitude { get; set; }
-    private float latitude { get; set; }
+    public float longitude { get; set; }
+    public float latitude { get; set; }
 
-    private string language { get; set; }
+    public string language { get; set; }
 
-    private float price { get; set; }
-    private string currency { get; set; }
+    public float price { get; set; }
+    public string currency { get; set; }
 
-    private string externalURL { get; set; }
-    private string externalID { get; set; }
-    private string accountName { get; set; }
-    private string accountID { get; set; }
+    public string externalURL { get; set; }
+    public string externalID { get; set; }
+    public string accountName { get; set; }
+    public string accountID { get; set; }
 
-    private DateTime timestamp { get; set; }
-    private DateTime expires { get; set; }
-    private DateTime indexed { get; set; }
+    public DateTime timestamp { get; set; }
+    public DateTime expires { get; set; }
+    public DateTime indexed { get; set; }
 
-    private List<Dictionary<string, string>> errors { get; set; }
+    public List<Dictionary<string, string>> errors { get; set; }
 
-    private Dictionary<string, Object> annotations { get; set; }
+    public Dictionary<string, Object> annotations { get; set; }
 
-    private bool exists { get; set; }
-    private List<PostingHistory> history { get; set; }
-    private string status { get; set; }
+    public bool exists { get; set; }
+    public List<PostingHistory> history { get; set; }
+    public string status { get; set; }
   }
 }
