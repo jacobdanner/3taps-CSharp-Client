@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace com.threetaps.dto.search
 {
-    public interface IQueryRequest
-    {
-        Dictionary<string, string> getQueryParams();
-    }
+  public interface IQueryRequest
+  {
+    Dictionary<string, string> getQueryParams();
+  }
 }

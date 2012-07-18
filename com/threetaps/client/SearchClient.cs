@@ -6,35 +6,35 @@ using com.threetaps.dto.search;
 
 namespace com.threetaps.client
 {
-    public class SearchClient
+  public class SearchClient
+  {
+    private static SearchClient instance;
+    // TODO: synchronize this
+    public static SearchClient getInstance()
     {
-        private static SearchClient instance;
-        // TODO: synchronize this
-        public static SearchClient getInstance()
-        {
-            if (instance == null)
-                instance = new SearchClient();
-            return instance;
-        }
-
-        public SearchResponse search(SearchRequest searchRequest)
-        {
-            throw new NotImplementedException("Implement me");
-        }
-
-        public RangeResponse range(RangeRequest rangeRequest)
-        {
-            throw new NotImplementedException("Implement me");
-        }
-
-        public SummaryResponse summary(SummaryRequest summaryRequest)
-        {
-            throw new NotImplementedException("Implement me");
-        }
-
-        public int count(SearchRequest searchRequest)
-        {
-            throw new NotImplementedException("Implement me");
-        }
+      if (instance == null)
+        instance = new SearchClient();
+      return instance;
     }
+
+    public SearchResponse search(SearchRequest searchRequest)
+    {
+      throw new NotImplementedException("Implement me");
+    }
+
+    public RangeResponse range(RangeRequest rangeRequest)
+    {
+      throw new NotImplementedException("Implement me");
+    }
+
+    public SummaryResponse summary(SummaryRequest summaryRequest)
+    {
+      throw new NotImplementedException("Implement me");
+    }
+
+    public int count(SearchRequest searchRequest)
+    {
+      throw new NotImplementedException("Implement me");
+    }
+  }
 }

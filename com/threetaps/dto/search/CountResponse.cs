@@ -5,8 +5,8 @@ using System.Text;
 
 namespace com.threetaps.dto.search
 {
-    internal class CountResponse
-    {
-        public int count { get; set; }
-    }
+  internal class CountResponse
+  {
+    public int count { get; set; }
+  }
 }

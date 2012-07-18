@@ -2,8 +2,8 @@
 
 namespace com.threetaps.dto.posting
 {
-    public class UpdateResponse
-    {
-        private bool success { get; set; }
-    }
+  public class UpdateResponse
+  {
+    private bool success { get; set; }
+  }
 }

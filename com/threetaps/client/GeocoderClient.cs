@@ -6,20 +6,20 @@ using com.threetaps.dto.geocoder;
 
 namespace com.threetaps.client
 {
-    public class GeocoderClient : Client
+  public class GeocoderClient : Client
+  {
+    private static GeocoderClient instance;
+    // TODO: synchronize this
+    public static GeocoderClient getInstance()
     {
-        private static GeocoderClient instance;
-        // TODO: synchronize this
-        public static GeocoderClient getInstance()
-        {
-            if (instance == null)
-                instance = new GeocoderClient();
-            return instance;
-        }
-
-        public List<GeocoderResponse> geocode(List<GeocoderRequest> geocoderRequests)
-        {
-            throw new NotImplementedException("Implement me");
-        }
+      if (instance == null)
+        instance = new GeocoderClient();
+      return instance;
     }
+
+    public List<GeocoderResponse> geocode(List<GeocoderRequest> geocoderRequests)
+    {
+      throw new NotImplementedException("Implement me");
+    }
+  }
 }
