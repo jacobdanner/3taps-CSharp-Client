@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3taps-CSharp-Client", "3taps-CSharp-Client.csproj", "{04D182A5-4CE2-4B9B-870C-9C0C3C181318}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3taps-CSharp-Client-Test", "3taps-CSharp-Client-Test\3taps-CSharp-Client-Test.csproj", "{A6CF685E-40D9-4415-AC81-6C4729FEE3A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{04D182A5-4CE2-4B9B-870C-9C0C3C181318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D182A5-4CE2-4B9B-870C-9C0C3C181318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D182A5-4CE2-4B9B-870C-9C0C3C181318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6CF685E-40D9-4415-AC81-6C4729FEE3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6CF685E-40D9-4415-AC81-6C4729FEE3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6CF685E-40D9-4415-AC81-6C4729FEE3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6CF685E-40D9-4415-AC81-6C4729FEE3A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

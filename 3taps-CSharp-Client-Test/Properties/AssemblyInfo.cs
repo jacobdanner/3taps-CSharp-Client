@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("3taps-CSharp-Client")]
+[assembly: AssemblyTitle("3taps-CSharp-Client-Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Oracle Corporation")]
-[assembly: AssemblyProduct("3taps-CSharp-Client")]
-[assembly: AssemblyCopyright("Copyright © Oracle Corporation 2012")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("3taps-CSharp-Client-Test")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("84b93c94-e7dc-4406-a6cf-966a3c0dee6a")]
+[assembly: Guid("3b06be56-4b95-4f3c-be30-d4ceb8b7cd1d")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,8 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-
-[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("_3taps_CSharp_Client_Test")]
