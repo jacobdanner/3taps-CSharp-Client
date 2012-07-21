@@ -19,7 +19,7 @@ namespace com.threetaps.client
         instance = new ReferenceClient();
       return instance;
     }
-
+	private ReferenceClient(){}
     public List<Category> getCategories()
     {
       HttpWebResponse response = (HttpWebResponse)this.executeGet("/reference/category");

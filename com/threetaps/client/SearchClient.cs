@@ -16,7 +16,8 @@ namespace com.threetaps.client
         instance = new SearchClient();
       return instance;
     }
-
+	private SearchClient(){}
+		
     public SearchResponse search(SearchRequest searchRequest)
     {
       throw new NotImplementedException("Implement me");

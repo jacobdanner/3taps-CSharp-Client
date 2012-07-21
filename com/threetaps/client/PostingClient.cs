@@ -7,7 +7,7 @@ using com.threetaps.model;
 
 namespace com.threetaps.client
 {
-  public class PostingClient
+  public class PostingClient : Client
   {
     private static PostingClient instance;
     // TODO: synchronize this
@@ -17,7 +17,7 @@ namespace com.threetaps.client
         instance = new PostingClient();
       return instance;
     }
-
+	private PostingClient(){}
 
     public Posting get(String postKey)
     {

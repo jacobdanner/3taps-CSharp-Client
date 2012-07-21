@@ -16,7 +16,8 @@ namespace com.threetaps.client
         instance = new GeocoderClient();
       return instance;
     }
-
+	private GeocoderClient(){}
+		
     public List<GeocoderResponse> geocode(List<GeocoderRequest> geocoderRequests)
     {
       throw new NotImplementedException("Implement me");
