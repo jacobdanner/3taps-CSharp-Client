@@ -11,6 +11,7 @@ namespace com.threetaps.client
 {
   public class Client
   {
+
 		
     private static readonly string DEFAULT_URL = Constants.DEFAULT_API_URL;
     private static readonly int DEFAULT_PORT = Constants.DEFAULT_API_PORT;
@@ -81,5 +82,19 @@ namespace com.threetaps.client
       sb.Append(ThreetapsClient.AUTH_ID_KEY).Append("=").Append(ThreetapsClient.getInstance().getAuthID());
       return sb.ToString();
     }
+  
+
+
+    protected String getResponseAsString(WebResponse resp)
+    {
+      StringBuilder sb = new StringBuilder();
+      using (StreamReader r = new StreamReader(resp.GetResponseStream()))
+      {
+        sb.Append(r.ReadToEnd());
+      }
+      Console.WriteLine(sb.ToString());
+      return sb.ToString();
+    }
   }
+
 }
