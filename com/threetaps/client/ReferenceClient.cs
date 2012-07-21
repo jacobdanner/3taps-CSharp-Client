@@ -22,25 +22,30 @@ namespace com.threetaps.client
 	private ReferenceClient(){}
     public List<Category> getCategories()
     {
-      HttpWebResponse response = (HttpWebResponse)this.executeGet("/reference/category");
-      List<Category> responseList = new List<Category>() {};
-      List<Category> resList = (List<Category>)JsonConvert.DeserializeObject(getResponseAsString(response), responseList.GetType());
-      return resList;
+      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/category");
+      return
+        (List<Category>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Category>().GetType());
     }
 
     public Category getCategory(String categoryCode)
     {
-      throw new NotImplementedException("Implement me");
+      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/category/" + categoryCode);
+      List<Category> catList =
+        (List<Category>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Category>().GetType());
+      return catList.Any() ? catList.First() : null;
     }
 
     public List<Location> getLocations()
     {
-      throw new NotImplementedException("Implement me");
+      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/location");
+      return
+        (List<Location>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Location>().GetType());
     }
 
     public List<Source> getSources()
     {
-      throw new NotImplementedException("Implement me");
+      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/source", null);
+      return (List<Source>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Source>().GetType());
     }
   }
 }

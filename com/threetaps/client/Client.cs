@@ -12,7 +12,7 @@ namespace com.threetaps.client
   public class Client
   {
 
-		
+    
     private static readonly string DEFAULT_URL = Constants.DEFAULT_API_URL;
     private static readonly int DEFAULT_PORT = Constants.DEFAULT_API_PORT;
 
@@ -75,9 +75,12 @@ namespace com.threetaps.client
     private string createEncodedString(Dictionary<string, string> parameters)
     {
       StringBuilder sb = new StringBuilder();
-      foreach (KeyValuePair<string, string> entry in parameters)
+      if (parameters != null && parameters.Any())
       {
-        sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
+        foreach (KeyValuePair<string, string> entry in parameters)
+        {
+          sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
+        }
       }
       sb.Append(ThreetapsClient.AUTH_ID_KEY).Append("=").Append(ThreetapsClient.getInstance().getAuthID());
       return sb.ToString();
