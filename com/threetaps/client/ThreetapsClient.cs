@@ -6,8 +6,8 @@ namespace com.threetaps.client
   {
     private static ThreetapsClient instance;
 
-    public static readonly String AUTH_ID_KEY = "authID";
-    private String authID;
+    public static readonly string AUTH_ID_KEY = "authID";
+    private string authID;
 
     public ReferenceClient referenceClient { get; private set; }
     public PostingClient postingClient { get; private set; }
@@ -30,12 +30,12 @@ namespace com.threetaps.client
       return instance;
     }
 
-    public String getAuthID()
+    public string getAuthID()
     {
       return authID;
     }
 
-    public ThreetapsClient setAuthID(String authID)
+    public ThreetapsClient setAuthID(string authID)
     {
       this.authID = authID;
       return this;

@@ -6,7 +6,7 @@ using com.threetaps.dto.search;
 
 namespace com.threetaps.client
 {
-  public class SearchClient
+  public class SearchClient : Client
   {
     private static SearchClient instance;
     // TODO: synchronize this

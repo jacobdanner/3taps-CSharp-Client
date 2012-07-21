@@ -11,10 +11,11 @@ namespace com.threetaps.client
 {
   public class Client
   {
-    private static readonly String DEFAULT_URL = Constants.DEFAULT_API_URL;
+		
+    private static readonly string DEFAULT_URL = Constants.DEFAULT_API_URL;
     private static readonly int DEFAULT_PORT = Constants.DEFAULT_API_PORT;
 
-    protected String baseURL;
+    protected string baseURL;
     protected int port;
 
     protected Client() : this(Client.DEFAULT_URL, Client.DEFAULT_PORT)
@@ -70,14 +71,14 @@ namespace com.threetaps.client
       return req.GetResponse();
     }
 
-    private String createEncodedString(Dictionary<string, string> parameters)
+    private string createEncodedString(Dictionary<string, string> parameters)
     {
       StringBuilder sb = new StringBuilder();
       foreach (KeyValuePair<string, string> entry in parameters)
       {
         sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
       }
-      sb.Append(ThreetapsClient.AUTH_ID_KEY).Append(ThreetapsClient.getInstance().getAuthID());
+      sb.Append(ThreetapsClient.AUTH_ID_KEY).Append("=").Append(ThreetapsClient.getInstance().getAuthID());
       return sb.ToString();
     }
   }
