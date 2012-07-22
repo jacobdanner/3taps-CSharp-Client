@@ -22,30 +22,27 @@ namespace com.threetaps.client
 
     public List<Category> getCategories()
     {
-      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/category");
-      return
-        (List<Category>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Category>().GetType());
+      return (List<Category>) callAndConvert("/reference/category",
+                                             new List<Category>().GetType());
     }
 
     public Category getCategory(String categoryCode)
     {
-      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/category/" + categoryCode);
-      List<Category> catList =
-        (List<Category>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Category>().GetType());
+      List<Category> catList = (List<Category>) callAndConvert("/reference/category/" + categoryCode,
+                                                               new List<Category>().GetType());
       return catList.Any() ? catList.First() : null;
     }
 
     public List<Location> getLocations()
     {
-      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/location");
-      return
-        (List<Location>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Location>().GetType());
+      return (List<Location>) callAndConvert("/reference/location",
+                                             new List<Location>().GetType());
     }
 
     public List<Source> getSources()
     {
-      HttpWebResponse response = (HttpWebResponse) this.executeGet("/reference/source", null);
-      return (List<Source>) JsonConvert.DeserializeObject(getResponseAsString(response), new List<Source>().GetType());
+      return (List<Source>) callAndConvert("/reference/source",
+                                           new List<Source>().GetType());
     }
   }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web;
+using Newtonsoft.Json;
 using com.threetaps.util;
 
 namespace com.threetaps.client
@@ -45,7 +46,7 @@ namespace com.threetaps.client
       return executeGet(endpoint, null);
     }
 
-    protected WebResponse executeGet(string endpoint, Dictionary<string, string> parameters)
+    protected WebResponse executeGet(string endpoint, Dictionary<string, string> parameters, bool skipEncode = false)
     {
       HttpWebRequest req =
         (HttpWebRequest) WebRequest.Create(this.baseURL + endpoint +
@@ -55,7 +56,7 @@ namespace com.threetaps.client
       return req.GetResponse();
     }
 
-    protected WebResponse executePost(string endpoint, Dictionary<string, string> parameters)
+    protected WebResponse executePost(string endpoint, Dictionary<string, string> parameters, bool skipEncode = false)
     {
       HttpWebRequest req =
         (HttpWebRequest) WebRequest.Create(this.baseURL + endpoint);
@@ -72,17 +73,25 @@ namespace com.threetaps.client
       return req.GetResponse();
     }
 
-    private string createEncodedString(Dictionary<string, string> parameters)
+    private string createEncodedString(Dictionary<string, string> parameters, bool skipEncode=false)
     {
       StringBuilder sb = new StringBuilder();
       if (parameters != null && parameters.Any())
       {
         foreach (KeyValuePair<string, string> entry in parameters)
         {
-          sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
+          if (skipEncode)
+          {
+            sb.Append(entry.Key).Append("=").Append(entry.Value).Append("&");
+          }
+          else
+          {
+            sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
+          }
         }
       }
       sb.Append(ThreetapsClient.AUTH_ID_KEY).Append("=").Append(ThreetapsClient.getInstance().getAuthID());
+      Console.WriteLine(sb.ToString());
       return sb.ToString();
     }
   
@@ -97,6 +106,17 @@ namespace com.threetaps.client
       }
       Console.WriteLine(sb.ToString());
       return sb.ToString();
+    }
+
+    protected Object callAndConvert(String urlPath, Type expectedType)
+    {
+      HttpWebResponse response = (HttpWebResponse) this.executeGet(urlPath);
+      return JsonConvert.DeserializeObject(getResponseAsString(response), expectedType);
+    }
+    protected Object callAndConvert(String urlPath, Type expectedType, Dictionary<string, string> parameters, bool skipEncode = false)
+    {
+      HttpWebResponse response = (HttpWebResponse)this.executeGet(urlPath, parameters, skipEncode);
+      return JsonConvert.DeserializeObject(getResponseAsString(response), expectedType);
     }
   }
 

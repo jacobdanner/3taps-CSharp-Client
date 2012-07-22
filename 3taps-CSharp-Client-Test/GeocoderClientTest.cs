@@ -75,7 +75,7 @@ namespace _3taps_CSharp_Client_Test
 
       List<GeocoderResponse> geocoderResponses = geocoderClient.geocode(geocoderRequests);
 
-      Assert.IsTrue(geocoderResponses.Count > 1);
+      Assert.IsTrue(geocoderResponses.Count >= 1);
       Assert.IsTrue(geocoderResponses.Exists(item => item.code == "LAX"));
     }
 

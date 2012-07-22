@@ -4,8 +4,10 @@ namespace com.threetaps.dto.geocoder
 {
   public class GeocoderRequest
   {
-    public float latitude { get; set; }
-    public float longitude { get; set; }
+    // made these nullable or else they are converted 
+    // by the JsonCoverter API 
+    public float? latitude { get; set; }
+    public float? longitude { get; set; }
     public string country { get; set; }
     public string state { get; set; }
     public string city { get; set; }
