@@ -24,23 +24,26 @@ namespace com.threetaps.client
     {
       HttpWebResponse response = (HttpWebResponse)this.executeGet("/reference/category");
       List<Category> responseList = new List<Category>() {};
-      List<Category> resList = (List<Category>)JsonConvert.DeserializeObject(getResponseAsString(response), responseList.GetType());
-      return resList;
+      return  (List<Category>)JsonConvert.DeserializeObject(getResponseAsString(response), responseList.GetType());
     }
 
     public Category getCategory(String categoryCode)
     {
-      throw new NotImplementedException("Implement me");
+      HttpWebResponse response = (HttpWebResponse)this.executeGet("/reference/category/"+categoryCode);
+      return (Category)JsonConvert.DeserializeObject(getResponseAsString(response), new Category().GetType());
     }
 
     public List<Location> getLocations()
     {
-      throw new NotImplementedException("Implement me");
+      HttpWebResponse response = (HttpWebResponse)this.executeGet("/reference/location");
+      List<Location> responseList = new List<Location>() { };
+      return (List<Location>)JsonConvert.DeserializeObject(getResponseAsString(response), new List<Location>().GetType());
     }
 
     public List<Source> getSources()
     {
-      throw new NotImplementedException("Implement me");
+      HttpWebResponse response = (HttpWebResponse)this.executeGet("/reference/source", null);
+      return (List<Source>)JsonConvert.DeserializeObject(getResponseAsString(response), new List<Source>().GetType());
     }
   }
 }
