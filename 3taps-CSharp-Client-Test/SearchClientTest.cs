@@ -32,7 +32,6 @@ namespace _3taps_CSharp_Client_Test
       searchClient = ThreetapsClient.getInstance().setAuthID(API_KEY).searchClient;
     }
 
-
     #region Additional test attributes
 
     // 
@@ -71,17 +70,16 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void countTest()
     {
-  	SearchRequest searchRequest = new SearchRequest();
-	
-		searchRequest.text = "Nintendo";
-		searchRequest.source = "E_BAY";
-		searchRequest.location = "LAX";
-		
-		int count = searchClient.count(searchRequest);
-		Assert.IsTrue( count != 0);
+      SearchRequest searchRequest = new SearchRequest();
+
+      searchRequest.text = "Nintendo";
+      searchRequest.source = "E_BAY";
+      searchRequest.location = "LAX";
+
+      int count = searchClient.count(searchRequest);
+      Assert.IsTrue(count != 0);
     }
 
-   
 
     /// <summary>
     ///A test for range
@@ -90,15 +88,15 @@ namespace _3taps_CSharp_Client_Test
     public void rangeTest()
     {
       SearchRequest searchRequest = new SearchRequest();
-		searchRequest.text = "Nintendo";
-		
-		RangeRequest rangeRequest = new RangeRequest();
-		rangeRequest.searchRequest = searchRequest;
-		rangeRequest.addField("price");
-		
-		RangeResponse response = searchClient.range(rangeRequest);
-		//Assert.IsTrue( response.ranges.get("price").getMin() == 0);
-		//assert response.getRanges().get("price").getMax() > 0;   
+      searchRequest.text = "Nintendo";
+
+      RangeRequest rangeRequest = new RangeRequest();
+      rangeRequest.searchRequest = searchRequest;
+      rangeRequest.addField("price");
+
+      RangeResponse response = searchClient.range(rangeRequest);
+      //Assert.IsTrue( response.ranges.get("price").getMin() == 0);
+      //assert response.getRanges().get("price").getMax() > 0;   
     }
 
     /// <summary>
@@ -108,14 +106,14 @@ namespace _3taps_CSharp_Client_Test
     public void searchTest()
     {
       SearchRequest searchRequest = new SearchRequest();
-	
-		searchRequest.text="Nintendo";
-		searchRequest.source= "E_BAY";
-		searchRequest.location = "LAX";
-		
-		SearchResponse searchResponse = searchClient.search(searchRequest);
-		Assert.IsTrue(searchResponse.success);
-		Assert.IsTrue(searchResponse.numResults > -2);
+
+      searchRequest.text = "Nintendo";
+      searchRequest.source = "E_BAY";
+      searchRequest.location = "LAX";
+
+      SearchResponse searchResponse = searchClient.search(searchRequest);
+      Assert.IsTrue(searchResponse.success);
+      Assert.IsTrue(searchResponse.numResults > -2);
     }
 
     /// <summary>
@@ -124,16 +122,16 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void summaryTest()
     {
-   	SearchRequest searchRequest = new SearchRequest();	
-		searchRequest.text = "Nintendo";
-		
-		SummaryRequest summaryRequest = new SummaryRequest();
-		summaryRequest.searchRequest = searchRequest;
-		summaryRequest.dimension = "source";
-		
-		SummaryResponse summaryResponse = searchClient.summary(summaryRequest);
-		Assert.IsTrue(summaryResponse.execTimeMs > 0);
-		Assert.IsTrue(summaryResponse.totals.ContainsKey("E_BAY"));
-	 }
+      SearchRequest searchRequest = new SearchRequest();
+      searchRequest.text = "Nintendo";
+
+      SummaryRequest summaryRequest = new SummaryRequest();
+      summaryRequest.searchRequest = searchRequest;
+      summaryRequest.dimension = "source";
+
+      SummaryResponse summaryResponse = searchClient.summary(summaryRequest);
+      Assert.IsTrue(summaryResponse.execTimeMs > 0);
+      Assert.IsTrue(summaryResponse.totals.ContainsKey("E_BAY"));
+    }
   }
 }

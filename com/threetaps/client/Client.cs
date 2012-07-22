@@ -11,8 +11,8 @@ namespace com.threetaps.client
 {
   public class Client
   {
-    private static readonly String DEFAULT_URL = Constants.DEFAULT_API_URL;
-    private static readonly int DEFAULT_PORT = Constants.DEFAULT_API_PORT;
+    private const String DEFAULT_URL = Constants.DEFAULT_API_URL;
+    private const int DEFAULT_PORT = Constants.DEFAULT_API_PORT;
 
     protected String baseURL;
     protected int port;
@@ -50,7 +50,7 @@ namespace com.threetaps.client
                                            "?" +
                                            createEncodedString(parameters));
       req.Method = "GET";
-      return req.GetResponse();
+      return req.GetResponse(); 
     }
 
     protected WebResponse executePost(string endpoint, Dictionary<string, string> parameters)
@@ -73,11 +73,25 @@ namespace com.threetaps.client
     private String createEncodedString(Dictionary<string, string> parameters)
     {
       StringBuilder sb = new StringBuilder();
-      foreach (KeyValuePair<string, string> entry in parameters)
+      if (parameters != null && parameters.Any())
       {
-        sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
+        foreach (KeyValuePair<string, string> entry in parameters)
+        {
+          sb.Append(entry.Key).Append("=").Append(HttpUtility.UrlEncode(entry.Value)).Append("&");
+        }
       }
       sb.Append(ThreetapsClient.AUTH_ID_KEY).Append(ThreetapsClient.getInstance().getAuthID());
+      return sb.ToString();
+    }
+
+    protected String getResponseAsString(WebResponse resp)
+    {
+      StringBuilder sb = new StringBuilder();
+      using (StreamReader r = new StreamReader(resp.GetResponseStream()))
+      {
+        sb.Append(r.ReadToEnd());
+      }
+      Console.WriteLine(sb.ToString());
       return sb.ToString();
     }
   }
