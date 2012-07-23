@@ -11,6 +11,10 @@
 - JSON Api Work
   - Add proper way exclude un-initialized floats and date time fields
     - properly implement Date conversion to map from MS Iso Date format to Constants.DATE_FORMAT
+- General Features
+  - Make Async API
+  - convenience methods for common queries
+  - More examples
 - Build work
   - Build outside of VS 2010
     - investigate NAnt
