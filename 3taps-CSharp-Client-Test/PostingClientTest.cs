@@ -107,5 +107,23 @@ namespace _3taps_CSharp_Client_Test
       Posting posting = postingClient.get("BDY6869");
       Assert.IsNotNull(posting);
     }
+
+    /// <summary>
+    ///A test for update
+    ///</summary>
+    [TestMethod()]
+    public void updateTest()
+    {
+      throw new NotImplementedException("Implement Me");
+    }
+
+    /// <summary>
+    ///A test for delete
+    ///</summary>
+    [TestMethod()]
+    public void deleteTest()
+    {
+      throw new NotImplementedException("Implement Me");
+    }
   }
 }

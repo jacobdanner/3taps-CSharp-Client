@@ -29,7 +29,7 @@ namespace com.threetaps.client
     public List<CreateResponse> create(List<Posting> postingsToCreate)
     {
       Dictionary<string, string> parameters = new Dictionary<string, string>();
-      parameters.Add("data", JsonConvert.SerializeObject(postingsToCreate, getClientJsonSerializerSettings()));
+      parameters.Add("postings", JsonConvert.SerializeObject(postingsToCreate, getClientJsonSerializerSettings()));
       return (List<CreateResponse>) callAndConvert("/posting/create", new List<CreateResponse>().GetType(), parameters);
     }
 

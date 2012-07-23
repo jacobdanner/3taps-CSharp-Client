@@ -9,7 +9,6 @@ namespace _3taps_CSharp_Client_Test
   [TestClass]
   public class BaseTestCase
   {
-  public static readonly string API_KEY = "jmrfhu59cnmtnzusshd62pbg";
-
+    public static readonly string API_KEY = "jmrfhu59cnmtnzusshd62pbg";
   }
 }

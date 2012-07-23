@@ -6,17 +6,13 @@ using System.Collections.Generic;
 
 namespace _3taps_CSharp_Client_Test
 {
-    
-    
-    /// <summary>
-    ///This is a test class for StatusClientTest and is intended
-    ///to contain all StatusClientTest Unit Tests
-    ///</summary>
+  /// <summary>
+  ///This is a test class for StatusClientTest and is intended
+  ///to contain all StatusClientTest Unit Tests
+  ///</summary>
   [TestClass()]
-  public class StatusClientTest
+  public class StatusClientTest : BaseTestCase
   {
-
-
     private TestContext testContextInstance;
 
     /// <summary>
@@ -25,17 +21,12 @@ namespace _3taps_CSharp_Client_Test
     ///</summary>
     public TestContext TestContext
     {
-      get
-      {
-        return testContextInstance;
-      }
-      set
-      {
-        testContextInstance = value;
-      }
+      get { return testContextInstance; }
+      set { testContextInstance = value; }
     }
 
     #region Additional test attributes
+
     // 
     //You can use the following additional attributes as you write your tests:
     //
@@ -52,29 +43,22 @@ namespace _3taps_CSharp_Client_Test
     //}
     //
     //Use TestInitialize to run code before running each test
-    //[TestInitialize()]
-    //public void MyTestInitialize()
-    //{
-    //}
-    //
+    private StatusClient statusClient;
+
+    [TestInitialize()]
+    public void setUp()
+    {
+      statusClient = ThreetapsClient.getInstance().setAuthID(API_KEY).statusClient;
+    }
+
     //Use TestCleanup to run code after each test has run
     //[TestCleanup()]
     //public void MyTestCleanup()
     //{
     //}
     //
+
     #endregion
-
-
-    /// <summary>
-    ///A test for StatusClient Constructor
-    ///</summary>
-    [TestMethod()]
-    public void StatusClientConstructorTest()
-    {
-      StatusClient target = new StatusClient();
-      Assert.Inconclusive("TODO: Implement code to verify target");
-    }
 
     /// <summary>
     ///A test for get
@@ -82,27 +66,18 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void getTest()
     {
-      StatusClient target = new StatusClient(); // TODO: Initialize to an appropriate value
-      List<Posting> postingsToCheck = null; // TODO: Initialize to an appropriate value
-      List<Posting> expected = null; // TODO: Initialize to an appropriate value
-      List<Posting> actual;
-      actual = target.get(postingsToCheck);
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
+      Posting posting = new Posting();
+      posting.externalID = "NOTANID";
+      posting.source = "E_BAY";
+
+      List<Posting> postingsToCheck = new List<Posting>();
+      postingsToCheck.Add(posting);
+
+      List<Posting> result = statusClient.get(postingsToCheck);
+      Assert.Equals(result.Count, 1);
+      Assert.IsTrue(result.ToArray()[0].exists == false);
     }
 
-    /// <summary>
-    ///A test for getInstance
-    ///</summary>
-    [TestMethod()]
-    public void getInstanceTest()
-    {
-      StatusClient expected = null; // TODO: Initialize to an appropriate value
-      StatusClient actual;
-      actual = StatusClient.getInstance();
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
-    }
 
     /// <summary>
     ///A test for system
@@ -110,12 +85,8 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void systemTest()
     {
-      StatusClient target = new StatusClient(); // TODO: Initialize to an appropriate value
-      Message expected = null; // TODO: Initialize to an appropriate value
-      Message actual;
-      actual = target.system();
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
+      Message message = statusClient.system();
+      Assert.IsNotNull(message.code);
     }
 
     /// <summary>
@@ -124,13 +95,16 @@ namespace _3taps_CSharp_Client_Test
     [TestMethod()]
     public void updateTest()
     {
-      StatusClient target = new StatusClient(); // TODO: Initialize to an appropriate value
-      List<Posting> postingsToUpdate = null; // TODO: Initialize to an appropriate value
-      Message expected = null; // TODO: Initialize to an appropriate value
-      Message actual;
-      actual = target.update(postingsToUpdate);
-      Assert.AreEqual(expected, actual);
-      Assert.Inconclusive("Verify the correctness of this test method.");
+      Posting posting = new Posting();
+      posting.externalID = "NOTANIDAGAIN";
+      posting.source = "E_BAY";
+      posting.status = "test";
+
+      List<Posting> postingsToUpdate = new List<Posting>();
+      postingsToUpdate.Add(posting);
+
+      Message result = statusClient.update(postingsToUpdate);
+      Assert.Equals(result.code, "200");
     }
   }
 }

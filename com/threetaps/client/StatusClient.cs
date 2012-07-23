@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using com.threetaps.model;
 
 namespace com.threetaps.client
 {
-  public class StatusClient
+  public class StatusClient : Client
   {
     private static StatusClient instance;
     // TODO: synchronize this
@@ -19,17 +20,27 @@ namespace com.threetaps.client
 
     public Message update(List<Posting> postingsToUpdate)
     {
-      throw new NotImplementedException("Implement me");
+      Dictionary<string, string> parameters = new Dictionary<string, string>();
+
+      parameters.Add("postings", JsonConvert.SerializeObject(postingsToUpdate, getClientJsonSerializerSettings()));
+      return (Message) callAndConvert("/status/update",
+                                      new Message().GetType(),
+                                      parameters);
     }
 
     public List<Posting> get(List<Posting> postingsToCheck)
     {
-      throw new NotImplementedException("Implement me");
+      Dictionary<string, string> parameters = new Dictionary<string, string>();
+
+      parameters.Add("postings", JsonConvert.SerializeObject(postingsToCheck, getClientJsonSerializerSettings()));
+      return (List<Posting>) callAndConvert("/status/get",
+                                            new List<Posting>().GetType(),
+                                            parameters);
     }
 
     public Message system()
     {
-      throw new NotImplementedException("Implement me");
+      return (Message) callAndConvert("/status/system", new Message().GetType());
     }
   }
 }

@@ -24,6 +24,7 @@ namespace _3taps_CSharp_Client_Test
       get { return testContextInstance; }
       set { testContextInstance = value; }
     }
+
     private ReferenceClient refClient;
 
     [TestInitialize()]
@@ -64,7 +65,6 @@ namespace _3taps_CSharp_Client_Test
 
     #endregion
 
-
     /// <summary>
     ///A test for getCategories
     ///</summary>
@@ -86,7 +86,7 @@ namespace _3taps_CSharp_Client_Test
       Assert.IsNotNull(category);
     }
 
-    
+
     /// <summary>
     ///A test for getLocations
     ///</summary>

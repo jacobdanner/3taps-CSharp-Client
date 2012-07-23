@@ -12,8 +12,6 @@ namespace com.threetaps.client
 {
   public class Client
   {
-
-    
     private static readonly string DEFAULT_URL = Constants.DEFAULT_API_URL;
     private static readonly int DEFAULT_PORT = Constants.DEFAULT_API_PORT;
 
@@ -50,7 +48,7 @@ namespace com.threetaps.client
     {
       string urlPath = this.baseURL + endpoint + "?" +
                        createEncodedString(parameters);
-      Console.WriteLine("Sending to: "+urlPath);
+      Console.WriteLine("Sending to: " + urlPath);
       HttpWebRequest req =
         (HttpWebRequest) WebRequest.Create(urlPath);
       req.Method = "GET";
@@ -74,7 +72,7 @@ namespace com.threetaps.client
       return req.GetResponse();
     }
 
-    private string createEncodedString(Dictionary<string, string> parameters, bool skipEncode=false)
+    private string createEncodedString(Dictionary<string, string> parameters, bool skipEncode = false)
     {
       StringBuilder sb = new StringBuilder();
       if (parameters != null && parameters.Any())
@@ -94,7 +92,6 @@ namespace com.threetaps.client
       sb.Append(ThreetapsClient.AUTH_ID_KEY).Append("=").Append(ThreetapsClient.getInstance().getAuthID());
       return sb.ToString();
     }
-  
 
 
     protected String getResponseAsString(WebResponse resp)
@@ -113,9 +110,11 @@ namespace com.threetaps.client
       HttpWebResponse response = (HttpWebResponse) this.executeGet(urlPath);
       return JsonConvert.DeserializeObject(getResponseAsString(response), expectedType);
     }
-    protected Object callAndConvert(String urlPath, Type expectedType, Dictionary<string, string> parameters, bool skipEncode = false)
+
+    protected Object callAndConvert(String urlPath, Type expectedType, Dictionary<string, string> parameters,
+                                    bool skipEncode = false)
     {
-      HttpWebResponse response = (HttpWebResponse)this.executeGet(urlPath, parameters, skipEncode);
+      HttpWebResponse response = (HttpWebResponse) this.executeGet(urlPath, parameters, skipEncode);
       return JsonConvert.DeserializeObject(getResponseAsString(response), expectedType);
     }
 
@@ -129,5 +128,4 @@ namespace com.threetaps.client
       return set;
     }
   }
-
 }

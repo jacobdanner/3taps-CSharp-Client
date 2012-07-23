@@ -6,17 +6,13 @@ using System.Net;
 
 namespace _3taps_CSharp_Client_Test
 {
-    
-    
-    /// <summary>
-    ///This is a test class for ClientTest and is intended
-    ///to contain all ClientTest Unit Tests
-    ///</summary>
+  /// <summary>
+  ///This is a test class for ClientTest and is intended
+  ///to contain all ClientTest Unit Tests
+  ///</summary>
   [TestClass()]
   public class ClientTest : BaseTestCase
   {
-
-
     private TestContext testContextInstance;
 
     /// <summary>
@@ -25,17 +21,12 @@ namespace _3taps_CSharp_Client_Test
     ///</summary>
     public TestContext TestContext
     {
-      get
-      {
-        return testContextInstance;
-      }
-      set
-      {
-        testContextInstance = value;
-      }
+      get { return testContextInstance; }
+      set { testContextInstance = value; }
     }
 
     #region Additional test attributes
+
     // 
     //You can use the following additional attributes as you write your tests:
     //
@@ -63,8 +54,8 @@ namespace _3taps_CSharp_Client_Test
     //{
     //}
     //
-    #endregion
 
+    #endregion
 
     /// <summary>
     ///A test for Client Constructor

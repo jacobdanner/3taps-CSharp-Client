@@ -5,17 +5,13 @@ using System.Collections.Generic;
 
 namespace _3taps_CSharp_Client_Test
 {
-    
-    
-    /// <summary>
-    ///This is a test class for UtilsTest and is intended
-    ///to contain all UtilsTest Unit Tests
-    ///</summary>
+  /// <summary>
+  ///This is a test class for UtilsTest and is intended
+  ///to contain all UtilsTest Unit Tests
+  ///</summary>
   [TestClass()]
   public class UtilsTest
   {
-
-
     private TestContext testContextInstance;
 
     /// <summary>
@@ -24,17 +20,12 @@ namespace _3taps_CSharp_Client_Test
     ///</summary>
     public TestContext TestContext
     {
-      get
-      {
-        return testContextInstance;
-      }
-      set
-      {
-        testContextInstance = value;
-      }
+      get { return testContextInstance; }
+      set { testContextInstance = value; }
     }
 
     #region Additional test attributes
+
     // 
     //You can use the following additional attributes as you write your tests:
     //
@@ -62,8 +53,8 @@ namespace _3taps_CSharp_Client_Test
     //{
     //}
     //
-    #endregion
 
+    #endregion
 
     /// <summary>
     ///A test for Join

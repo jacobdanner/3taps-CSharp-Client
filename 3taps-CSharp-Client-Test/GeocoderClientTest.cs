@@ -11,7 +11,7 @@ namespace _3taps_CSharp_Client_Test
   ///to contain all GeocoderClientTest Unit Tests
   ///</summary>
   [TestClass()]
-  public class GeocoderClientTest :BaseTestCase
+  public class GeocoderClientTest : BaseTestCase
   {
     private TestContext testContextInstance;
 
@@ -57,7 +57,6 @@ namespace _3taps_CSharp_Client_Test
 
     #endregion
 
-    
     /// <summary>
     ///A test for geocode
     ///</summary>
@@ -68,7 +67,7 @@ namespace _3taps_CSharp_Client_Test
         ThreetapsClient.getInstance().setAuthID(API_KEY).geocoderClient;
 
       GeocoderRequest geocoderRequest = new GeocoderRequest();
-      geocoderRequest.text= "Los Angeles, CA";
+      geocoderRequest.text = "Los Angeles, CA";
 
       List<GeocoderRequest> geocoderRequests = new List<GeocoderRequest>();
       geocoderRequests.Add(geocoderRequest);
@@ -78,6 +77,5 @@ namespace _3taps_CSharp_Client_Test
       Assert.IsTrue(geocoderResponses.Count >= 1);
       Assert.IsTrue(geocoderResponses.Exists(item => item.code == "LAX"));
     }
-
   }
 }

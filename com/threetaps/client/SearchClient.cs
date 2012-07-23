@@ -19,22 +19,32 @@ namespace com.threetaps.client
 
     public SearchResponse search(SearchRequest searchRequest)
     {
-      throw new NotImplementedException("Implement me");
+      return (SearchResponse) callAndConvert("/search",
+                                             new SearchResponse().GetType(),
+                                             searchRequest.getQueryParams());
     }
 
     public RangeResponse range(RangeRequest rangeRequest)
     {
-      throw new NotImplementedException("Implement me");
+      return (RangeResponse) callAndConvert("/search",
+                                            new RangeResponse().GetType(),
+                                            rangeRequest.getQueryParams());
     }
 
     public SummaryResponse summary(SummaryRequest summaryRequest)
     {
-      throw new NotImplementedException("Implement me");
+      return (SummaryResponse) callAndConvert("/search",
+                                              new SummaryResponse().GetType(),
+                                              summaryRequest.getQueryParams());
     }
 
     public int count(SearchRequest searchRequest)
     {
-      throw new NotImplementedException("Implement me");
+      Dictionary<string, int> responseMap = (Dictionary<string, int>) callAndConvert("/search/count",
+                                                                                     new Dictionary<string, int>().
+                                                                                       GetType(),
+                                                                                     searchRequest.getQueryParams());
+      return responseMap["count"];
     }
   }
 }

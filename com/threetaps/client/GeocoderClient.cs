@@ -23,11 +23,11 @@ namespace com.threetaps.client
       Dictionary<string, string> parameters = new Dictionary<string, string>();
 
       parameters.Add("data", JsonConvert.SerializeObject(geocoderRequests, getClientJsonSerializerSettings()));
-      List<List<string>> responseList = (List<List<string>>)callAndConvert("/geocoder/geocode/",
-                                                   new List<List<string>>().GetType(), 
-                                                   parameters);
+      List<List<string>> responseList = (List<List<string>>) callAndConvert("/geocoder/geocode/",
+                                                                            new List<List<string>>().GetType(),
+                                                                            parameters);
       List<GeocoderResponse> geocoderResponses = new List<GeocoderResponse>(responseList.Count);
-      foreach(List<string> response in responseList)
+      foreach (List<string> response in responseList)
       {
         if (response.Count >= 3)
         {

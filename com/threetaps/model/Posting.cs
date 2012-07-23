@@ -29,11 +29,13 @@ namespace com.threetaps.model
     public string accountName { get; set; }
     public string accountID { get; set; }
 
-    [JsonConverter(typeof(ThreeTapsDateTimeConverter))]
+    [JsonConverter(typeof (ThreeTapsDateTimeConverter))]
     public DateTime timestamp { get; set; }
-    [JsonConverter(typeof(ThreeTapsDateTimeConverter))]
+
+    [JsonConverter(typeof (ThreeTapsDateTimeConverter))]
     public DateTime expires { get; set; }
-    [JsonConverter(typeof(ThreeTapsDateTimeConverter))]
+
+    [JsonConverter(typeof (ThreeTapsDateTimeConverter))]
     public DateTime indexed { get; set; }
 
     public List<Dictionary<string, string>> errors { get; set; }
@@ -43,23 +45,22 @@ namespace com.threetaps.model
     public bool? exists { get; set; }
     public List<PostingHistory> history { get; set; }
     public string status { get; set; }
-
   }
 
-  public class ThreeTapsDateTimeConverter : IsoDateTimeConverter  
+  public class ThreeTapsDateTimeConverter : IsoDateTimeConverter
   {
     public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
     {
       String formattedDate = null;
       if (value is DateTime)
       {
-        DateTime dateTime = (DateTime)value;
+        DateTime dateTime = (DateTime) value;
         formattedDate = dateTime.ToString(Constants.DATE_FORMAT);
       }
 #if !PocketPC && !NET20
       else if (value is DateTimeOffset)
       {
-        DateTimeOffset dateTimeOffset = (DateTimeOffset)value;
+        DateTimeOffset dateTimeOffset = (DateTimeOffset) value;
         formattedDate = dateTimeOffset.DateTime.ToString(Constants.DATE_FORMAT);
       }
 #endif
@@ -70,7 +71,5 @@ namespace com.threetaps.model
 
       writer.WriteValue(formattedDate);
     }
-
-  
   }
 }
