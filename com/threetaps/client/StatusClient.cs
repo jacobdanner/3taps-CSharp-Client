@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using com.threetaps.model;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace com.threetaps.client
 {
@@ -16,6 +18,10 @@ namespace com.threetaps.client
       if (instance == null)
         instance = new StatusClient();
       return instance;
+    }
+
+    private StatusClient()
+    {
     }
 
     public Message update(List<Posting> postingsToUpdate)

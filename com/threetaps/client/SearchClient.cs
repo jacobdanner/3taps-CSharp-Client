@@ -17,6 +17,10 @@ namespace com.threetaps.client
       return instance;
     }
 
+    private SearchClient()
+    {
+    }
+
     public SearchResponse search(SearchRequest searchRequest)
     {
       return (SearchResponse) callAndConvert("/search",

@@ -18,6 +18,10 @@ namespace com.threetaps.client
       return instance;
     }
 
+    private GeocoderClient()
+    {
+    }
+
     public List<GeocoderResponse> geocode(List<GeocoderRequest> geocoderRequests)
     {
       Dictionary<string, string> parameters = new Dictionary<string, string>();

@@ -19,6 +19,9 @@ namespace com.threetaps.client
       return instance;
     }
 
+    private PostingClient()
+    {
+    }
 
     public Posting get(String postKey)
     {

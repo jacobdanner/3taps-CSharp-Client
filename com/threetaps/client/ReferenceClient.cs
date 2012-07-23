@@ -20,6 +20,10 @@ namespace com.threetaps.client
       return instance;
     }
 
+    private ReferenceClient()
+    {
+    }
+
     public List<Category> getCategories()
     {
       return (List<Category>) callAndConvert("/reference/category",
