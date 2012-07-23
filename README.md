@@ -28,9 +28,13 @@
 To use the 3Taps CSharp/dotNet Client API Wrapper
 (figure out how to do this via the dll, maybe create a nuget package)
 
+There is a dll you can grab at:
+<project_root>/obj/Debug/3taps-CShapr-Client.dll
+
+
 ## Building
 
-We've only built this using MonoDevelop and VS2010, future tasks include using NAnt
+We've only built this using MonoDevelop and VS2010, future tasks include using NAnt.
 
 ## Example
 
