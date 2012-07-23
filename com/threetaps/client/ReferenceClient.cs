@@ -28,6 +28,7 @@ namespace com.threetaps.client
 
     public Category getCategory(String categoryCode)
     {
+      // TODO: should we urlencode postKey
       List<Category> catList = (List<Category>) callAndConvert("/reference/category/" + categoryCode,
                                                                new List<Category>().GetType());
       return catList.Any() ? catList.First() : null;

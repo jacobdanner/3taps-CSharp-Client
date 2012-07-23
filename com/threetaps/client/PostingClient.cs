@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using com.threetaps.dto.posting;
 using com.threetaps.model;
 
 namespace com.threetaps.client
 {
-  public class PostingClient
+  public class PostingClient : Client
   {
     private static PostingClient instance;
     // TODO: synchronize this
@@ -21,12 +22,15 @@ namespace com.threetaps.client
 
     public Posting get(String postKey)
     {
-      throw new NotImplementedException("Implement me");
+      // TODO: should we urlencode postKey
+      return (Posting) callAndConvert("/posting/get/" + postKey, new Posting().GetType());
     }
 
     public List<CreateResponse> create(List<Posting> postingsToCreate)
     {
-      throw new NotImplementedException("Implement me");
+      Dictionary<string, string> parameters = new Dictionary<string, string>();
+      parameters.Add("data", JsonConvert.SerializeObject(postingsToCreate, getClientJsonSerializerSettings()));
+      return (List<CreateResponse>) callAndConvert("/posting/create", new List<CreateResponse>().GetType(), parameters);
     }
 
     /**
@@ -41,12 +45,28 @@ namespace com.threetaps.client
 
     public UpdateResponse update(List<Posting> postingsToUpdate)
     {
-      throw new NotImplementedException("Implement me");
+      List<List<object>> updateParam = new List<List<object>>();
+      foreach (Posting posting in postingsToUpdate)
+      {
+        List<object> postingList = new List<object>();
+
+        postingList.Add(posting.postKey);
+        posting.postKey = null;
+        postingList.Add(posting);
+
+        updateParam.Add(postingList);
+      }
+
+      Dictionary<string, string> parameters = new Dictionary<string, string>();
+      parameters.Add("data", JsonConvert.SerializeObject(updateParam, getClientJsonSerializerSettings()));
+      return (UpdateResponse) callAndConvert("/posting/update", new UpdateResponse().GetType(), parameters);
     }
 
     public DeleteResponse delete(List<String> postKeysToDelete)
     {
-      throw new NotImplementedException("Implement me");
+      Dictionary<string, string> parameters = new Dictionary<string, string>();
+      parameters.Add("data", JsonConvert.SerializeObject(postKeysToDelete, getClientJsonSerializerSettings()));
+      return (DeleteResponse) callAndConvert("/posting/delete", new DeleteResponse().GetType(), parameters);
     }
   }
 }

@@ -48,10 +48,11 @@ namespace com.threetaps.client
 
     protected WebResponse executeGet(string endpoint, Dictionary<string, string> parameters, bool skipEncode = false)
     {
+      string urlPath = this.baseURL + endpoint + "?" +
+                       createEncodedString(parameters);
+      Console.WriteLine("Sending to: "+urlPath);
       HttpWebRequest req =
-        (HttpWebRequest) WebRequest.Create(this.baseURL + endpoint +
-                                           "?" +
-                                           createEncodedString(parameters));
+        (HttpWebRequest) WebRequest.Create(urlPath);
       req.Method = "GET";
       return req.GetResponse();
     }
@@ -91,7 +92,6 @@ namespace com.threetaps.client
         }
       }
       sb.Append(ThreetapsClient.AUTH_ID_KEY).Append("=").Append(ThreetapsClient.getInstance().getAuthID());
-      Console.WriteLine(sb.ToString());
       return sb.ToString();
     }
   
@@ -117,6 +117,16 @@ namespace com.threetaps.client
     {
       HttpWebResponse response = (HttpWebResponse)this.executeGet(urlPath, parameters, skipEncode);
       return JsonConvert.DeserializeObject(getResponseAsString(response), expectedType);
+    }
+
+    protected JsonSerializerSettings getClientJsonSerializerSettings()
+    {
+      JsonSerializerSettings set = new JsonSerializerSettings();
+      set.NullValueHandling = NullValueHandling.Ignore;
+      set.MissingMemberHandling = MissingMemberHandling.Ignore;
+      set.Formatting = Formatting.None;
+      set.DefaultValueHandling = DefaultValueHandling.Ignore;
+      return set;
     }
   }
 

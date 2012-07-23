@@ -73,13 +73,14 @@ namespace _3taps_CSharp_Client_Test
       posting1.category = "VAUT";
       posting1.heading = "This is a Test Posting";
       posting1.location = "LAX";
-      posting1.timestamp = new DateTime();
+      //posting1.timestamp = DateTime.UtcNow;
 
       Posting posting2 = new Posting();
       posting2.source = "3TAPS";
       posting2.category = "VAUT";
       posting2.heading = "This is a Test Posting";
       posting2.location = "LAX";
+      //posting2.timestamp = DateTime.UtcNow;
 
       List<Posting> postingsToCreate = new List<Posting>();
       postingsToCreate.Add(posting1);
