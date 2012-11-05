@@ -44,15 +44,15 @@ namespace com.threetaps.dto.search
     {
       Dictionary<string, string> queryParams = new Dictionary<string, string>();
 
-      if (rpp != null)
-      {
+      //if (rpp != null)
+      //{
         queryParams["rpp"] = rpp.ToString();
-      }
+      //}
 
-      if (page != null)
-      {
+      //if (page != null)
+      //{
         queryParams["page"] = page.ToString();
-      }
+      //}
 
       if (source != null)
       {

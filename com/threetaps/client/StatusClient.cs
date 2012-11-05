@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using com.threetaps.model;
-using Newtonsoft.Json;
 using System.Net;
 
 namespace com.threetaps.client

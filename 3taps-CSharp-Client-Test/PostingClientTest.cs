@@ -62,6 +62,9 @@ namespace _3taps_CSharp_Client_Test
 
     #endregion
 
+    
+
+
     /// <summary>
     ///A test for create
     ///</summary>
@@ -72,14 +75,14 @@ namespace _3taps_CSharp_Client_Test
       posting1.source = "3TAPS";
       posting1.category = "VAUT";
       posting1.heading = "This is a Test Posting";
-      posting1.location = "LAX";
+      posting1.location = getExampleLocation();
       //posting1.timestamp = DateTime.UtcNow;
 
       Posting posting2 = new Posting();
       posting2.source = "3TAPS";
       posting2.category = "VAUT";
       posting2.heading = "This is a Test Posting";
-      posting2.location = "LAX";
+      posting2.location = getExampleLocation();
       //posting2.timestamp = DateTime.UtcNow;
 
       List<Posting> postingsToCreate = new List<Posting>();

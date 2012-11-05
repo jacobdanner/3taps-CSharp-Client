@@ -53,8 +53,9 @@ namespace com.threetaps.client
       {
         List<object> postingList = new List<object>();
 
-        postingList.Add(posting.postKey);
-        posting.postKey = null;
+        //postingList.Add(posting.postKey);
+        
+        //posting.postKey = null;
         postingList.Add(posting);
 
         updateParam.Add(postingList);
